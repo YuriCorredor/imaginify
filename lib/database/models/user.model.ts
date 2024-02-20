@@ -25,3 +25,7 @@ const UserSchema = new Schema({
   createdAt: { type: Date, default: Date.now, required: true },
   updatedAt: { type: Date, default: Date.now, required: true },
 })
+
+const User = models?.User || model("User", UserSchema)
+
+export default User
