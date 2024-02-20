@@ -1,0 +1,27 @@
+import { Schema, model, models, Document } from "mongoose"
+
+export interface User extends Document {
+  clerkId: string;
+  email: string;
+  username: string;
+  photo: string;
+  firstName?: string;
+  lastName?: string;
+  planId: number;
+  creditBalance: number;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+const UserSchema = new Schema({
+  clerkId: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
+  username: { type: String, required: true, unique: true },
+  photo: { type: String, required: true },
+  firstName: { type: String  },
+  lastName: { type: String },
+  planId: { type: Number, default: 1, required: true },
+  creditBalance: { type: Number, default: 10, required: true },
+  createdAt: { type: Date, default: Date.now, required: true },
+  updatedAt: { type: Date, default: Date.now, required: true },
+})
